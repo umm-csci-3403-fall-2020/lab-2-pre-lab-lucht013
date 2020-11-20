@@ -66,6 +66,12 @@ int is_clean(char* str) {
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
+ 
+  //frees up the memory used by calloc in strip() after checking
+  //to see if there was any memory 
+  if(cleaned[0] != '\0'){
+    free(cleaned);
+  }
 
   return result == 0;
 }
